@@ -10,6 +10,7 @@ q3
 **Enter the number of transitions:** 5    
 
 **Enter the transitions (state1 input state2):**
+
 q1   0   q1
 
 q1   e   q2
