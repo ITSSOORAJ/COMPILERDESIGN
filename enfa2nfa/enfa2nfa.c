@@ -129,7 +129,7 @@ void findclosure(int x,int sta)
             int i;
            if(buffer[x])
                      return;
-             e_closure[sta][c++]=x;
+             e_closure[sta][c++]=x;  //c is static int so icrement occurs after initialization mean e_closure[sta][0]=x is beginning
             buffer[x]=1;
              if(alphabet[noalpha-1]=='e' && transition[x][noalpha-1]!=NULL)
                 {
