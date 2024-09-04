@@ -1,0 +1,11 @@
+Line no. 	 Token no. 		 Token 		 Lexeme
+
+      1		       0		 Keyword	     int
+      1		       1		 Identifier	       a
+      1		       2		 Special symbol	       ;
+      2		       3		 Keyword	  printf
+      2		       4		 Special symbol	       (
+      2		       5		 Literal	 "value of a is : %d"
+      2		       6		 Identifier	       a
+      2		       7		 Special symbol	       )
+      2		       8		 Special symbol	       ;
