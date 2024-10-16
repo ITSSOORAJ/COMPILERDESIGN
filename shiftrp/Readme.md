@@ -8,13 +8,13 @@ GRAMMAR is
 
 Enter input string : id+id*id+id
 
-stack    input   action
+stack      input     action
 
-$id       +id*id+id$    SHIFT->id
+$id        +id*id+id$    SHIFT->id
 
-$E        +id*id+id$    REDUCE TO E
+$E         +id*id+id$    REDUCE TO E
 
-$E+        id*id+id$    SHIFT->symbol +
+$E+         id*id+id$    SHIFT->symbol +
 
 $E+id        *id+id$    SHIFT->id
 
