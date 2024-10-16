@@ -11,19 +11,33 @@ Enter input string : id+id*id+id
 stack    input   action
 
 $id       +id*id+id$    SHIFT->id
+
 $E        +id*id+id$    REDUCE TO E
+
 $E+        id*id+id$    SHIFT->symbol +
+
 $E+id        *id+id$    SHIFT->id
+
 $E+E         *id+id$    REDUCE TO E
+
 $E           *id+id$    REDUCE TO E
+
 $E*           id+id$    SHIFT->symbol *
+
 $E*id           +id$    SHIFT->id
+
 $E*E            +id$    REDUCE TO E
+
 $E              +id$    REDUCE TO E
+
 $E+              id$    SHIFT->symbol +
+
 $E+id              $    SHIFT->id
+
 $E+E               $    REDUCE TO E
+
 $E                 $    REDUCE TO E
+
 
 STRING ACCEDPTED
 
