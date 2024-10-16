@@ -33,6 +33,7 @@ $E + id    $             SHIFT -> id
 $E + E     $             REDUCE TO E
 $E         $             REDUCE TO E
 
+
  STRING ACCEPTED
 
 Input Example 2
@@ -40,12 +41,12 @@ Input String: id * \
 
 Processing Steps:
 
-
 stack      input          action
 -----------------------------------
 $id        *\$           SHIFT -> id
 $E         *\$           REDUCE TO E
 $E *       \$            SHIFT -> symbol *
 $E * \     $             SHIFT -> symbol \
+
 
  STRING REJECTED
