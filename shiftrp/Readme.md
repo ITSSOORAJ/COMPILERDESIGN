@@ -1,68 +1,51 @@
-❯ ./a.out
+Parser Simulation
+Overview
 
-GRAMMAR is 
- E->E+E 
- E->E*E 
- E->(E) 
- E->id 
+This program simulates a parser for a given grammar, demonstrating how it processes input strings through a stack-based approach. The grammar used is:
 
-Enter input string : id+id*id+id
+mathematica
 
-stack      input     action
+E -> E + E
+E -> E * E
+E -> (E)
+E -> id
 
-$id        +id*id+id$    SHIFT->id
+Input Example 1
+Input String: id + id * id + id
 
+Processing Steps:
+
+
+stack      input          action
+-----------------------------------
+$id        +id*id+id$    SHIFT -> id
 $E         +id*id+id$    REDUCE TO E
+$E +       id*id+id$     SHIFT -> symbol +
+$E + id    *id+id$       SHIFT -> id
+$E + E     *id+id$       REDUCE TO E
+$E         *id+id$       REDUCE TO E
+$E *       id+id$        SHIFT -> symbol *
+$E * id    +id$          SHIFT -> id
+$E * E     +id$          REDUCE TO E
+$E         +id$          REDUCE TO E
+$E +       id$           SHIFT -> symbol +
+$E + id    $             SHIFT -> id
+$E + E     $             REDUCE TO E
+$E         $             REDUCE TO E
 
-$E+         id*id+id$    SHIFT->symbol +
+ STRING ACCEPTED
 
-$E+id        *id+id$    SHIFT->id
+Input Example 2
+Input String: id * \
 
-$E+E         *id+id$    REDUCE TO E
-
-$E           *id+id$    REDUCE TO E
-
-$E*           id+id$    SHIFT->symbol *
-
-$E*id           +id$    SHIFT->id
-
-$E*E            +id$    REDUCE TO E
-
-$E              +id$    REDUCE TO E
-
-$E+              id$    SHIFT->symbol +
-
-$E+id              $    SHIFT->id
-
-$E+E               $    REDUCE TO E
-
-$E                 $    REDUCE TO E
+Processing Steps:
 
 
-STRING ACCEDPTED
+stack      input          action
+-----------------------------------
+$id        *\$           SHIFT -> id
+$E         *\$           REDUCE TO E
+$E *       \$            SHIFT -> symbol *
+$E * \     $             SHIFT -> symbol \
 
-GRAMMAR is 
-
- E->E+E 
- 
- E->E*E 
- 
- E->(E) 
- 
- E->id 
-
-
-Enter input string : id*\
-
-stack 	 input 	 action
-
-
-$id	  *\$	SHIFT->id
-
-$E	  *\$	REDUCE TO E
-
-$E*	   \$	SHIFT->symbol *
-
-$E*\	    $	SHIFT->symbol \
-
-STRING REJECTED
+ STRING REJECTED
